@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include "../src/lib.h"
+#include <xuv>
+#include "lib.h"
 
 TEST(LibTest, Setup) {
 

@@ -10,11 +10,16 @@ add_subdirectory(libs/libuv)
 
 include_directories(libs/libuv/include)
 
-add_library(
-  xuv
+include_directories(include)
+
+set(
+  SOURCES
+  include/xuv
   src/lib.h
   src/lib.cc
 )
+
+add_library(xuv ${SOURCES})
 
 # executables
 
@@ -22,17 +27,21 @@ add_executable(xuv-exec examples/main.cc)
 
 target_link_libraries(xuv-exec xuv uv)
 
-# unit-tests
+# tests
 
 enable_testing()
 
 add_subdirectory(libs/googletest/googletest)
 
-add_executable(
-  run-unit-tests
+set(
+  TESTS
   tests/lib-test.cc
 )
 
-target_link_libraries(run-unit-tests xuv uv gtest gtest_main)
+add_executable(run-tests ${TESTS})
 
-add_test(unit-tests run-unit-tests)
+target_include_directories(run-tests PRIVATE src)
+
+target_link_libraries(run-tests xuv uv gtest gtest_main)
+
+add_test(tests run-tests)
