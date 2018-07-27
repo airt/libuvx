@@ -4,6 +4,8 @@ project(xuv)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # libraries
 
 add_subdirectory(libs/libuv)
