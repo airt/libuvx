@@ -19,6 +19,10 @@ set(
   include/xuv
   src/lib.h
   src/lib.cc
+  src/context.h
+  src/context.cc
+  src/coroutine.h
+  src/coroutine.cc
 )
 
 add_library(xuv ${SOURCES})
@@ -38,6 +42,7 @@ add_subdirectory(libs/googletest/googletest)
 set(
   TESTS
   tests/lib-test.cc
+  tests/coroutine-test.cc
 )
 
 add_executable(run-tests ${TESTS})
