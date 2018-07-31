@@ -19,10 +19,18 @@ set(
   include/xuv
   src/lib.h
   src/lib.cc
+  src/fs.h
+  src/fs.cc
+  src/loop.h
+  src/loop.cc
+  src/timer.h
+  src/timer.cc
   src/context.h
   src/context.cc
   src/coroutine.h
   src/coroutine.cc
+  src/utilities.h
+  src/utilities.cc
 )
 
 add_library(xuv ${SOURCES})
@@ -33,6 +41,10 @@ add_executable(xuv-exec examples/main.cc)
 
 target_link_libraries(xuv-exec xuv uv)
 
+add_executable(cat examples/cat.cc)
+
+target_link_libraries(cat xuv uv)
+
 # tests
 
 enable_testing()
@@ -42,6 +54,8 @@ add_subdirectory(libs/googletest/googletest)
 set(
   TESTS
   tests/lib-test.cc
+  tests/fs-test.cc
+  tests/timer-test.cc
   tests/coroutine-test.cc
 )
 

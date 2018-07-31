@@ -28,13 +28,28 @@ int main() {
 }
 ```
 
+### More
+
+- [cat](examples/cat.cc)
+
 ## Build and Test
 
 ```bash
 git submodule update --init --recursive
+```
 
+run scripts
+
+```bash
 scripts/build.sh
 scripts/test.sh
+```
+
+or run within container
+
+```bash
+docker build -t xuv-test .
+docker run -it xuv-test
 ```
 
 [build-badge]: https://img.shields.io/travis/airt/xuv.svg

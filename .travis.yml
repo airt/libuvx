@@ -1,19 +1,12 @@
-language: cpp
+language: ruby
 
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-      env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+sudo: required
+
+services:
+  - docker
 
 before_install:
-  - eval "$MATRIX_EVAL"
+  - docker build -t xuv-test .
 
 script:
-  - scripts/build.sh && scripts/test.sh
+  - docker run -it xuv-test
