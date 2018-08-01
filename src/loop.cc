@@ -1,7 +1,6 @@
 #include "loop.h"
-
-#include <uv.h>
 #include "coroutine.h"
+#include <uv.h>
 
 namespace co {
 

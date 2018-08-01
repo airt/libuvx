@@ -1,9 +1,5 @@
-#include <gtest/gtest.h>
-#include <xuv>
 #include "lib.h"
+#include <gtest/gtest.h>
+#include <uvx>
 
-TEST(LibTest, Setup) {
-
-  EXPECT_FALSE(0);
-
-}
+TEST(LibTest, Setup) { EXPECT_FALSE(0); }

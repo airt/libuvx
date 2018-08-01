@@ -1,6 +1,0 @@
-#ifndef XUV_H
-#define XUV_H
-
-#include "../src/lib.h"
-
-#endif // XUV_H

@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
 #include "coroutine.h"
-#include "utilities.h"
-#include "timer.h"
 #include "loop.h"
+#include "timer.h"
+#include "utilities.h"
+#include <gtest/gtest.h>
 
 TEST(TimerTest, Sleep) {
 
@@ -15,7 +15,6 @@ TEST(TimerTest, Sleep) {
   for (int i = 0; i < 10; i++) {
 
     co::create([=] {
-
       auto tx = uv_hrtime();
 
       co::sleep(timeout);
@@ -25,9 +24,7 @@ TEST(TimerTest, Sleep) {
 
       EXPECT_GE(td / 1e6, timeout / 2);
       EXPECT_LE(td / 1e6, timeout * 2);
-
     });
-
   }
 
   co::run();
@@ -39,5 +36,4 @@ TEST(TimerTest, Sleep) {
   EXPECT_LE(otd / 1e6, timeout * 2);
 
   EXPECT_TRUE(co::finished());
-
 }

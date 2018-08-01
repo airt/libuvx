@@ -1,8 +1,7 @@
 #include "timer.h"
-
-#include <uv.h>
 #include "coroutine.h"
 #include "utilities.h"
+#include <uv.h>
 
 namespace co {
 

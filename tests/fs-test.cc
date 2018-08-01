@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
 #include "coroutine.h"
-#include "utilities.h"
-#include "loop.h"
 #include "fs.h"
+#include "loop.h"
+#include "utilities.h"
+#include <gtest/gtest.h>
 
 TEST(FsTest, File) {
 
@@ -15,7 +15,6 @@ TEST(FsTest, File) {
   for (int i = 0; i < 10; i++) {
 
     co::create([&, i] {
-
       auto tx = uv_hrtime();
 
       auto file = co::fs::open("../license", O_RDONLY);
@@ -23,7 +22,7 @@ TEST(FsTest, File) {
       co::fs::stat_t stat;
       co::fs::fstat(file, &stat);
 
-      auto buf = co::make_unique_buf(256);
+      auto buf = co::make_buf(256);
       int64_t offset = 0;
 
       while (true) {
@@ -43,9 +42,7 @@ TEST(FsTest, File) {
       auto tz = uv_hrtime();
       auto td = tz - tx;
       ts.emplace_back(td);
-
     });
-
   }
 
   co::run();
@@ -58,5 +55,4 @@ TEST(FsTest, File) {
   EXPECT_LE(otd, tm * 2);
 
   EXPECT_TRUE(co::finished());
-
 }

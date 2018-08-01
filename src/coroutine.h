@@ -1,5 +1,5 @@
-#ifndef XUV_COROUTINE_H
-#define XUV_COROUTINE_H
+#ifndef UVX_COROUTINE_H
+#define UVX_COROUTINE_H
 
 #include <functional>
 
@@ -9,7 +9,7 @@ using task_t = std::function<void()>;
 
 using coroutine_id_t = int;
 
-coroutine_id_t &running_coroutine();
+coroutine_id_t &running_coroutine_id();
 
 coroutine_id_t create(task_t &&);
 
@@ -27,4 +27,4 @@ bool finished();
 
 } // end namespace co
 
-#endif // XUV_COROUTINE_H
+#endif // UVX_COROUTINE_H

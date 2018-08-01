@@ -1,26 +1,22 @@
-#include <xuv>
 #include <cstring>
-
-char *program;
+#include <uvx>
 
 void cat(const char *path) {
 
   auto check = [=](int code) {
     if (code < 0) {
-      fprintf(stderr, "%s: %s: %s\n", program, path, uv_strerror(code));
+      fprintf(stderr, "cat: %s: %s\n", path, uv_strerror(code));
       exit(code);
     }
   };
 
   co::create([=] {
-
     const co::fs::file_t STDIN = 0;
 
     auto file = strcmp(path, "-") == 0 ? STDIN : co::fs::open(path, O_RDONLY);
-
     check(file);
 
-    auto buf = co::make_unique_buf(256);
+    auto buf = co::make_buf(256);
     int64_t offset = 0;
 
     while (true) {
@@ -29,24 +25,22 @@ void cat(const char *path) {
       if (len == 0) {
         break;
       }
+
       buf->len = len;
       co::fs::write(1, &*buf, 1, -1);
+
       offset += len;
     }
 
     if (file != STDIN) {
       co::fs::close(file);
     }
-
   });
 
   co::run();
-
 }
 
 int main(int argc, char **argv) {
-
-  program = argv[0];
 
   if (argc < 2) {
     cat("-");
@@ -55,5 +49,4 @@ int main(int argc, char **argv) {
   for (int i = 1; i < argc; i++) {
     cat(argv[i]);
   }
-
 }

@@ -2,14 +2,13 @@
 
 namespace co {
 
-unique_buf_t make_unique_buf(size_t len) {
-  return {
-    new uv_buf_t{new char[len], len},
-    [](buf_t *buf) {
-      delete[] buf->base;
-      delete buf;
-    }
+buf_ptr make_buf(size_t len) {
+  auto ptr = new uv_buf_t{new char[len], len};
+  auto dtr = [](buf_t *buf) {
+    delete[] buf->base;
+    delete buf;
   };
+  return {ptr, dtr};
 }
 
 namespace internal {

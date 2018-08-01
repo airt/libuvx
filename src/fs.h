@@ -1,8 +1,8 @@
-#ifndef XUV_FS_H
-#define XUV_FS_H
+#ifndef UVX_FS_H
+#define UVX_FS_H
 
-#include <uv.h>
 #include "utilities.h"
+#include <uv.h>
 
 namespace co {
 
@@ -30,4 +30,4 @@ int fstat(file_t file, stat_t *stat);
 
 } // end namespace co
 
-#endif // XUV_FS_H
+#endif // UVX_FS_H

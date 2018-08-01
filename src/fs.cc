@@ -1,14 +1,13 @@
 #include "fs.h"
-
-#include <uv.h>
 #include "coroutine.h"
 #include "utilities.h"
+#include <uv.h>
 
-#define POST                                                                  \
-  do {                                                                        \
-    uv_fs_req_cleanup(&handle);                                               \
-    return static_cast<int>(handle.result);                                   \
-  } while (0)                                                                 \
+#define POST                                                                   \
+  do {                                                                         \
+    uv_fs_req_cleanup(&handle);                                                \
+    return static_cast<int>(handle.result);                                    \
+  } while (0)
 
 namespace co {
 

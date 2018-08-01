@@ -1,6 +1,6 @@
-[submodule "libs/googletest"]
-	path = libs/googletest
+[submodule "vendor/googletest"]
+	path = vendor/googletest
 	url = https://github.com/google/googletest
-[submodule "libs/libuv"]
-	path = libs/libuv
+[submodule "vendor/libuv"]
+	path = vendor/libuv
 	url = https://github.com/libuv/libuv

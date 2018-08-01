@@ -1,15 +1,15 @@
-# xuv
+# libuvx
 
 [![Build Status][build-badge]][build-status]
 
-coroutine + libuv
+libuv + coroutine
 
 ## Code Example
 
 ### Basic
 
 ```cxx
-#include <xuv>
+#include <uvx>
 
 int main() {
 
@@ -48,9 +48,9 @@ scripts/test.sh
 or run within container
 
 ```bash
-docker build -t xuv-test .
-docker run -it xuv-test
+docker build -t uvx-test .
+docker run -it uvx-test
 ```
 
-[build-badge]: https://img.shields.io/travis/airt/xuv.svg
-[build-status]: https://travis-ci.org/airt/xuv
+[build-badge]: https://img.shields.io/travis/airt/libuvx.svg
+[build-status]: https://travis-ci.org/airt/libuvx

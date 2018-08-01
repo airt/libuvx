@@ -1,22 +1,22 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(xuv)
+project(uvx)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # libraries
 
-add_subdirectory(libs/libuv)
+add_subdirectory(vendor/libuv)
 
-include_directories(libs/libuv/include)
+include_directories(vendor/libuv/include)
 
 include_directories(include)
 
 set(
   SOURCES
-  include/xuv
+  include/uvx
   src/lib.h
   src/lib.cc
   src/fs.h
@@ -33,23 +33,23 @@ set(
   src/utilities.cc
 )
 
-add_library(xuv ${SOURCES})
+add_library(uvx ${SOURCES})
 
 # executables
 
-add_executable(xuv-exec examples/main.cc)
+add_executable(uvx-exec examples/main.cc)
 
-target_link_libraries(xuv-exec xuv uv)
+target_link_libraries(uvx-exec uvx uv)
 
 add_executable(cat examples/cat.cc)
 
-target_link_libraries(cat xuv uv)
+target_link_libraries(cat uvx uv)
 
 # tests
 
 enable_testing()
 
-add_subdirectory(libs/googletest/googletest)
+add_subdirectory(vendor/googletest)
 
 set(
   TESTS
@@ -63,6 +63,6 @@ add_executable(run-tests ${TESTS})
 
 target_include_directories(run-tests PRIVATE src)
 
-target_link_libraries(run-tests xuv uv gtest gtest_main)
+target_link_libraries(run-tests uvx uv gtest gtest_main)
 
 add_test(tests run-tests)

@@ -1,5 +1,5 @@
-#ifndef XUV_TIMER_H
-#define XUV_TIMER_H
+#ifndef UVX_TIMER_H
+#define UVX_TIMER_H
 
 #include <cstdint>
 
@@ -9,4 +9,4 @@ void sleep(uint64_t milliseconds);
 
 } // end namespace co
 
-#endif // XUV_TIMER_H
+#endif // UVX_TIMER_H

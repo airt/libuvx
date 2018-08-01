@@ -1,5 +1,5 @@
-#ifndef XUV_LOOP_H
-#define XUV_LOOP_H
+#ifndef UVX_LOOP_H
+#define UVX_LOOP_H
 
 namespace co {
 
@@ -7,4 +7,4 @@ int run();
 
 } // end namespace co
 
-#endif // XUV_LOOP_H
+#endif // UVX_LOOP_H

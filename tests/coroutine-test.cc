@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include "coroutine.h"
+#include <gtest/gtest.h>
 
 TEST(CoroutineTest, Traces) {
 
@@ -43,7 +43,6 @@ TEST(CoroutineTest, Traces) {
   EXPECT_EQ((std::vector<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}), t);
 
   EXPECT_TRUE(co::finished());
-
 }
 
 TEST(CoroutineTest, Dispatch) {
@@ -75,5 +74,4 @@ TEST(CoroutineTest, Dispatch) {
   EXPECT_EQ((std::vector<int>{0, 1, 1, 2, 2, 3, 3}), t);
 
   EXPECT_TRUE(co::finished());
-
 }
